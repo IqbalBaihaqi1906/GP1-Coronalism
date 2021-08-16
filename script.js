@@ -5,14 +5,14 @@ const setIndonesiaData = (data) => {
     const sembuh = document.getElementById('covid-sembuh')
     const meninggal = document.getElementById('covid-meninggal')
     
-    positive.textContent = formatNumber(data.confirmed.value)
-    sembuh.textContent = formatNumber(data.recovered.value)
-    meninggal.textContent = formatNumber(data.deaths.value)
+    positive.textContent = formatNumber(data.positif)
+    sembuh.textContent = formatNumber(data.sembuh)
+    meninggal.textContent = formatNumber(data.meninggal)
 }
 
 const getIndonesiaData = () => {
     try {
-        fetch('https://covid19.mathdro.id/api/countries/Indonesia')
+        fetch('https://apicovid19indonesia-v2.vercel.app/api/indonesia')
             .then(res => res.json())
             .then(json => setIndonesiaData(json))
     } catch (error) {
