@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healty Dev</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/healthydev.png">
+
+</head>
+<body>
+    
+
+
+    <!-- --------- Navbar -------------- -->
+    <nav>
+        <div class="navbar z-50 bg-blue-400 w-full py-2 px-12 flex items-center fixed top-0 font-semibold"> 
+            <div class="icon flex items-center ">
+                <img src="/assets/healthydev.png" alt="" class="w-8">
+                <p class="text-sm text-white ml-2">HealthyDev</p>
+            </div>
+            <div class="hs w-full flex flex-row-reverse items-center gap-x-12 ">
+                <a href="/pages/vaksin.html" class="text-white text-sm ">Vaksinasi</a>
+                <a href="/pages/rumah_sakit.html" class="text-white text-sm ">Rumah Sakit</a>
+                <a href="/pages/search.html" class="text-white text-sm ">Cari Provinsi</a>
+                <a href="/index.html" class="text-white text-sm ">Home</a>
+            </div>
+        </div>
+    </nav>
+    <!-- --------- End of Navbar -------------- -->
+
+
+
+    <!-- --------- Form ------------------- -->
+    <div class="mt-16">
+        <img src="/assets/search_illustration.svg" class="w-2/5 block mx-auto justify-center my-12"/>
+        <div class="block w-3/5 h-10 rounded-lg mx-auto px-3 shadow-lg flex flex-columns items-center">
+            <input class="w-full focus:outline-none " placeholder="Masukkan Nama Provinsi ..." id="inputan"/>
+            <button id="buttonSearch"><img src="/assets/icons8-search.png" class="w-8"/></button>
+        </div>
+    </div>
+    <!-- --------- End of Form ------------------- -->
+
+
+
+
+
+    <!-- --------- List data ------------------- -->
+    <div class="w-4/5 flex flex-row flex-wrap my-16 mx-auto" id="listData"></div>
+
+    <!-- --------- End of List data ------------------- -->
+
+
+    <!-- --------- Detail Data ------------------- -->
+    <div class="w-3/5 shadow-lg my-14 mx-auto bg-white rounded-xl p-10 flex flex-row items-center gap-10" style="display: none">
+        <div class="w-2/5">
+            <img class="w-4/5 mx-auto" src="/assets/detail_prov.svg" alt="detail illustration">
+        </div>
+        <div class="w-3/5 text-center" id="detail-data">
+            <h3 class="text-2xl font-semibold mb-4 provinsi"></h3>
+            <div class="bg-red-400 my-4 rounded-lg p-4 w-4/5 mx-auto text-white">
+                <h2 class="text-4xl font-semibold positif"></h2>
+                <h5 class="text-lg font-semibol">Positif</h5>
+            </div>
+            <div class="bg-green-400 my-4 rounded-lg p-4 w-4/5 mx-auto text-white">
+                <h2 class="text-4xl font-semibold sembuh"></h2>
+                <h5 class="text-lg font-semibol">Sembuh</h5>
+            </div>
+            <div class="bg-yellow-400 my-4 rounded-lg p-4 w-4/5 mx-auto text-white">
+                <h2 class="text-4xl font-semibold meninggal"></h2>
+                <h5 class="text-lg font-semibol">Meninggal</h5>
+            </div>
+        </div>
+    </div>
+    <!-- --------- End of Detail Data ------------------- -->
+
+
+
+
+    <!-- --------- Footer ------------------- -->
+    <footer class="py-2 bg-purple-800 text-white w-screen relative bottom-0 top-8">
+        <p class="text-center">&copy; Copyright 2021 HealthyDev</p>
+    </footer>
+    <!-- --------- End of Footer ------------------- -->
+    
+
+
+
+    <script src="/scripts/province.js"></script>
+
+    
+</body>
+</html>
