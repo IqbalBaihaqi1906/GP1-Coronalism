@@ -7,13 +7,28 @@
     <title>Healty Dev</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/assets/healthydev.png">
+    <style>
+        body {
+            overflow-x:hidden;
+        }
+
+        aside {
+            transform: translateX(-100%);
+            transition: .5s ease-in;
+        }
+
+        aside.active {
+            transform: translateX(0);
+        }
+        
+    </style>
 </head>
-<body>
+<body  class="relative min-h-screen">
     
 
     <!-- ------------------- Navbar -------------------- -->
     <nav>
-        <div class="navbar bg-blue-400 w-full py-2 px-12 flex items-center fixed top-0 font-semibold"> 
+        <div class="navbar bg-blue-400 w-full py-2 px-12 flex items-center justify-between fixed top-0 font-semibold z-50"> 
             <div class="icon flex items-center ">
                 <img src="assets/healthydev.png" alt="" class="w-8">
                 <p class="text-sm text-white ml-2">HealthyDev</p>
@@ -22,14 +37,43 @@
                 <a href="/pages/vaksin.html" class="text-white text-sm ">Vaksinasi</a>
                 <a href="/pages/rumah_sakit.html" class="text-white text-sm ">Rumah Sakit</a>
                 <a href="/pages/search.html" class="text-white text-sm ">Cari Provinsi</a>
-                <a href="index.html" class="text-white text-sm ">Home</a>
+                <a href="/index.html" class="text-white text-sm ">Home</a>
             </div>
+            <!-- button sidebar -->
+            <div class="block md:hidden">
+                <button class="text-white" id="btnSidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <!-- end of button sidebar -->
         </div>
     </nav>
     <!-- ------------------- End of Navbar -------------------- -->
 
+<<<<<<< HEAD
     <!-- ---------------------- Body ---------------------- -->
     <div class="container">
+=======
+
+
+    <!-- ------------------------- Aside ---------------- -->
+    <aside class="bg-blue-400 w-screen h-screen fixed top-0 left-0 z-40 pt-20">
+        <div class="flex flex-col-reverse text-center gap-10 text-lg font-semibold text-white">
+            <a href="/page/vaksin.html" class="hover:opacity-50">Vaksinasi</a>
+            <a href="/page/rumah_sakit.html" class="hover:opacity-50">Rumah Sakit</a>
+            <a href="/page/search.html" class="hover:opacity-50">Cari Provinsi</a>
+            <a href="/index.html" class="hover:opacity-50">Home</a>
+        </div>
+    </aside>
+    <!-- ------------------------- End of Aside ---------------- -->
+    
+    
+    
+
+    <!-- ---------------------- Body ---------------------- -->
+>>>>>>> 8d02d41608fe9b6bd8df971f0391fc543f14412e
     <div class="container flex justify-around items-center w-4/5 mx-auto my-16 gap-16">
         <div class="w-2/3">
             <img src="assets/Group 11.png" class="w-full rounded-xl" alt="home illustration">
@@ -67,6 +111,13 @@
     <!-- ---------------------- End of Body ---------------------- -->
     
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 8d02d41608fe9b6bd8df971f0391fc543f14412e
     <!-- ------------------- Footer -------------------- -->
     <footer class="py-2 transform translate-y-10 md:translate-y-0 absolute bg-purple-900 text-white w-screen bottom-0">
         <p class="text-center">&copy; Copyright 2021 HealthyDev</p>
