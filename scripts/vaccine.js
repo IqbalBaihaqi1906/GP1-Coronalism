@@ -19,5 +19,5 @@ try {
         showData(result)
     }) 
 } catch (error) {
-    
+    console.log(error);
 }
