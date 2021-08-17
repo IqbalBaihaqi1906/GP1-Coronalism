@@ -38,10 +38,9 @@ inputProvinsi.addEventListener('keydown' , (e) => {
     let result = ``
     list_province.forEach(data => {
         result += `
-            <li data-id="${data.id}" class="px-4 py-2" >${data.name}</li>
+            <li data-id="${data.id}" class="px-4 py-2 cursor-pointer hover:bg-gray-100  transition duration-200" >${data.name}</li>
         `
     })
-    console.log(list_province)
     autoProvince.innerHTML = result
 })
 
@@ -78,10 +77,9 @@ inputCity.addEventListener('keydown' , (e) => {
     let result = ``
     list_cities.forEach(data => {
         result += `
-            <li data-id="${data.id}" class="px-2 py-2" >${data.name}</li>
+            <li data-id="${data.id}" class="px-2 py-2 cursor-pointer hover:bg-gray-100 transition duration-200">${data.name}</li>
         `
     })
-    console.log(list_cities)
     autoCity.innerHTML = result
 })
 
@@ -94,11 +92,11 @@ const setHospitalElement = async (prov_id , city_id) => {
                                 .then(json => json.hospitals)
 
         const listData = document.getElementById('listData')
-        
+        console.log(list_hospitals)
         let result = ``
         list_hospitals.forEach(data => {
             result += `
-                <div class="w-1/3 p-4">
+                <div class="w-full md:w-1/3 p-4">
                     <div class="shadow-md h-full p-4 rounded-lg">
                         <h5 class=" font-semibold text-xl text-green-400">${data.name}</h5>
                         <h5 class=" font-bold text-red-400">${data.phone}</h5>
@@ -108,7 +106,7 @@ const setHospitalElement = async (prov_id , city_id) => {
                                 <img src="/assets/image 1.png" class="pl-1 w-8 inline-block"/>
                                 <span class="font-semibold text-yellow-400 ml-2">${data.bed_availability} bed</span>
                             </div>
-                            <button class="bg-blue-400 text-white font-semibold py-1 rounded px-4 text-sm inline-block">detail</button>
+                            <button data-id="${data.id}" class="bg-blue-400 hover:bg-blue-500 transition duration-200 text-white font-semibold py-1 rounded px-4 text-sm inline-block">detail</button>
                         </div>
                     </div>
                 </div>
@@ -132,3 +130,63 @@ autoCity.addEventListener('click' , async(e) => {
     setHospitalElement(prov_id , city_id)
 })
 
+
+
+
+
+
+const listData = document.getElementById('listData')
+const modalDetail = document.getElementById('modalDetail')
+const btnClose = document.getElementById('btnClose')
+
+btnClose.addEventListener('click' , () => {
+    modalDetail.style.opacity = 0
+    modalDetail.style.pointerEvents = 'none'
+})
+
+listData.addEventListener('click' , async (e) => {
+    let tag = e.target.tagName
+    if(tag === "BUTTON") {
+        let hospital_id = e.target.getAttribute('data-id')
+        let detail_hospital = await fetch(`https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=${hospital_id}&type=1`)
+                                .then(res => res.json())
+                                .then(json => json.data)
+                                .catch(err => console.log(err))
+        let location_hospital = await fetch(`https://rs-bed-covid-api.vercel.app/api/get-hospital-map?hospitalid=${hospital_id}`)
+                                    .then(res => res.json())
+                                    .then(json => {
+                                            return {lat: json.data.lat , long: json.data.long}
+                                        })
+                                    .catch(err => console.log(err))
+        
+        // set detail data hospital
+        for(let [key , value] of Object.entries(detail_hospital)) {
+            // modalDetail.querySelector(`p[data-key="${key}"]`).textContent = value
+            let element = modalDetail.querySelector(`p[data-key="${key}"]`)
+            element ? element.textContent = value : ""
+        }
+
+        // set maps
+        let listBed = ``
+        detail_hospital.bedDetail.forEach(data => {
+            console.log(data.stats)
+            listBed += `
+                <div class="w-full md:w-1/3 p-2 box-border">
+                    <div class="bg-white rounded-md h-full shadow-md p-3">
+                        <h5 class="font-semibold">${data.stats.title}</h5>
+                        <p class="text-sm">Bed available : ${data.stats.bed_available}</p>
+                        <p class="text-sm">Bed empty : ${data.stats.bed_empty}</p>
+                    </div>
+                </div>
+            `
+        })
+        document.getElementById('listBed').innerHTML = listBed
+        
+        modalDetail.querySelector('iframe#gmap_canvas').setAttribute('src' , `https://maps.google.com/maps?q=${location_hospital.lat},${location_hospital.long}&t=&z=13&ie=UTF8&iwloc=&output=embed`)
+
+        modalDetail.style.opacity = 1
+        modalDetail.style.pointerEvents = "all"
+
+        // https://maps.google.com/maps?q=-8.6493,115.226&t=&z=13&ie=UTF8&iwloc=&output=embed
+    }
+})
