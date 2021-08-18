@@ -82,9 +82,9 @@ let getInput = document.getElementById("inputan")
 let title = document.getElementById('titleData')
 getInput.addEventListener('keyup' , (e) => {
     if(e.target.value !== '') {
-        title.style.display = 'none'
+        title.style.visibility = 'hidden'
     } else {
-        title.style.display = 'block'
+        title.style.visibility = 'visible'
     }
     
     let notfound = true
