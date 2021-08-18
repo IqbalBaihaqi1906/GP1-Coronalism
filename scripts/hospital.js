@@ -98,7 +98,7 @@ const setHospitalElement = async (prov_id , city_id) => {
             result += `
                 <div class="w-full md:w-1/3 p-4">
                     <div class="shadow-md h-full p-4 rounded-lg">
-                        <h5 class=" font-semibold text-xl text-green-400">${data.name}</h5>
+                        <h5 class=" font-bold text-xl text-green-400">${data.name}</h5>
                         <h5 class=" font-bold text-red-400">${data.phone}</h5>
                         <h6 class=" text-black-400 text-sm">${data.address}</h6>
                         <div class="flex items-center justify-between mt-3">
@@ -142,6 +142,7 @@ const btnClose = document.getElementById('btnClose')
 btnClose.addEventListener('click' , () => {
     modalDetail.style.opacity = 0
     modalDetail.style.pointerEvents = 'none'
+    modalDetail.style.transform = 'translateY(30px)'
 })
 
 listData.addEventListener('click' , async (e) => {
@@ -186,6 +187,7 @@ listData.addEventListener('click' , async (e) => {
 
         modalDetail.style.opacity = 1
         modalDetail.style.pointerEvents = "all"
+        modalDetail.style.transform = 'translateY(0)'
 
         // https://maps.google.com/maps?q=-8.6493,115.226&t=&z=13&ie=UTF8&iwloc=&output=embed
     }
