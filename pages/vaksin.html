@@ -7,24 +7,11 @@
     <title>Data Vaksinasi</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/assets/healthydev.png">
-    <style>
-        body {
-            overflow-x: hidden;
-        }
+    <link rel="stylesheet" href="/style.css">
 
-        aside {
-            transform: translateX(-100%);
-            transition: .5s ease-in;
-        }
-
-        aside.active {
-            transform: translateX(0);
-        }
-
-    </style>
     
 </head>
-<body class="relative min-h-screen">
+<body class="relative min-h-screen  text-gray-600">
     <!-- -------------- Navbar -------------------------- -->
     <nav>
         <div class="navbar bg-blue-400 w-full py-2 px-12 flex items-center justify-between fixed top-0 font-semibold z-50"> 
@@ -33,10 +20,10 @@
                 <p class="text-sm text-white ml-2">HealthyDev</p>
             </div>
             <div class="hs w-full hidden md:flex flex-row-reverse items-center gap-x-12 ">
-                <a href="/pages/vaksin.html" class="text-white text-sm">Vaksinasi</a>
-                <a href="/pages/rumah_sakit.html" class="text-white text-sm ">Rumah Sakit</a>
-                <a href="/pages/search.html" class="text-white text-sm ">Cari Provinsi</a>
-                <a href="/index.html" class="text-white text-sm ">Home</a>
+                <a href="/pages/vaksin.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Vaksinasi</a>
+                <a href="/pages/rumah_sakit.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Rumah Sakit</a>
+                <a href="/pages/search.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Cari Provinsi</a>
+                <a href="/index.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Home</a>
             </div>
             <!-- button sidebar -->
             <div class="block md:hidden">

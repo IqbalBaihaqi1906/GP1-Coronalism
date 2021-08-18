@@ -7,26 +7,11 @@
     <title>Healty Dev</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/assets/healthydev.png">
+    <link rel="stylesheet" href="/style.css">
 
-    <style>
-        body {
-            margin: 20px auto;
-            overflow-x: hidden;
-        }
-
-        aside {
-            transform: translateX(-100%);
-            transition: .5s ease-in;
-        }
-
-        aside.active {
-            transform: translateX(0);
-        }
-        
-    </style>
     
 </head>
-<body  class="relative pb-20 min-h-screen">
+<body  class="relative pb-20 min-h-screen text-gray-600">
     
 
 
@@ -38,10 +23,10 @@
                 <p class="text-sm text-white ml-2">HealthyDev</p>
             </div>
             <div class="hs w-full hidden md:flex flex-row-reverse items-center gap-x-12 ">
-                <a href="/pages/vaksin.html" class="text-white text-sm ">Vaksinasi</a>
-                <a href="/pages/rumah_sakit.html" class="text-white text-sm ">Rumah Sakit</a>
-                <a href="/pages/search.html" class="text-white text-sm ">Cari Provinsi</a>
-                <a href="/index.html" class="text-white text-sm ">Home</a>
+                <a href="/pages/vaksin.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Vaksinasi</a>
+                <a href="/pages/rumah_sakit.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Rumah Sakit</a>
+                <a href="/pages/search.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Cari Provinsi</a>
+                <a href="/index.html" class="text-white text-sm tansition duration-200 hover:opacity-75 ">Home</a>
             </div>
             <!-- button sidebar -->
             <div class="block md:hidden">
@@ -88,32 +73,10 @@
 
 
     <!-- ------------------ List Data --------------------- -->
-    <div class="w-full md:w-4/5 flex flex-col md:flex-row flex-wrap my-16 mx-auto" id="listData"></div>
+    <h4 id="titleData" class="text-center text-3xl font-semibold mt-10 mb-4">Top Case Positive</h4>
+    <div class="w-full md:w-4/5 flex flex-col md:flex-row flex-wrap mb-16 mx-auto gap-y-14" id="listData"></div>
     <!-- ----------------- End of List Data ---------------------- -->
 
-
-    <!-- --------- Detail Data ------------------- -->
-    <div class="w-full md:w-3/5 shadow-lg my-14 mx-auto bg-white rounded-xl p-10 flex flex-col md:flex-row items-center gap-10" style="display: none">
-        <div class="w-full md:w-2/5">
-            <img class="w-4/5 mx-auto" src="/assets/detail_prov.svg" alt="detail illustration">
-        </div>
-        <div class="w-full md:w-3/5 text-center" id="detail-data">
-            <h3 class="text-2xl font-semibold mb-4 provinsi"></h3>
-            <div class="bg-red-400 my-4 rounded-lg p-4 w-4/5 mx-auto text-white">
-                <h2 class="text-4xl font-semibold positif"></h2>
-                <h5 class="text-lg font-semibol">Positif</h5>
-            </div>
-            <div class="bg-green-400 my-4 rounded-lg p-4 w-4/5 mx-auto text-white">
-                <h2 class="text-4xl font-semibold sembuh"></h2>
-                <h5 class="text-lg font-semibol">Sembuh</h5>
-            </div>
-            <div class="bg-yellow-400 my-4 rounded-lg p-4 w-4/5 mx-auto text-white">
-                <h2 class="text-4xl font-semibold meninggal"></h2>
-                <h5 class="text-lg font-semibol">Meninggal</h5>
-            </div>
-        </div>
-    </div>
-    <!-- --------- End of Detail Data ------------------- -->
 
 
 
