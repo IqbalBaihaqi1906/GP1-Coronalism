@@ -142,6 +142,7 @@ const btnClose = document.getElementById('btnClose')
 btnClose.addEventListener('click' , () => {
     modalDetail.style.opacity = 0
     modalDetail.style.pointerEvents = 'none'
+    modalDetail.style.transform = 'translateY(30px)'
 })
 
 listData.addEventListener('click' , async (e) => {
@@ -186,6 +187,7 @@ listData.addEventListener('click' , async (e) => {
 
         modalDetail.style.opacity = 1
         modalDetail.style.pointerEvents = "all"
+        modalDetail.style.transform = 'translateY(0)'
 
         // https://maps.google.com/maps?q=-8.6493,115.226&t=&z=13&ie=UTF8&iwloc=&output=embed
     }
