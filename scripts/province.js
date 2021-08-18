@@ -79,8 +79,14 @@ const filterData = (value) => {
 // get inputan
 
 let getInput = document.getElementById("inputan")
+let title = document.getElementById('titleData')
 getInput.addEventListener('keyup' , (e) => {
-    let regex = new RegExp(e.target.value , 'gi')
+    if(e.target.value !== '') {
+        title.style.display = 'none'
+    } else {
+        title.style.display = 'block'
+    }
+    
     let notfound = true
     let result = ``
     let countData = 0

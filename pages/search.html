@@ -7,11 +7,15 @@
     <title>Healty Dev</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/assets/healthydev.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 20px auto;
             overflow-x: hidden;
+            font-family: 'Nunito';
         }
 
         aside {
@@ -26,7 +30,7 @@
     </style>
     
 </head>
-<body  class="relative pb-20 min-h-screen">
+<body  class="relative pb-20 min-h-screen text-gray-600">
     
 
 
@@ -88,7 +92,8 @@
 
 
     <!-- ------------------ List Data --------------------- -->
-    <div class="w-full md:w-4/5 flex flex-col md:flex-row flex-wrap my-16 mx-auto" id="listData"></div>
+    <h4 id="titleData" class="text-center text-3xl font-semibold mt-10 mb-4">Top Case Positive</h4>
+    <div class="w-full md:w-4/5 flex flex-col md:flex-row flex-wrap mb-16 mx-auto gap-y-14" id="listData"></div>
     <!-- ----------------- End of List Data ---------------------- -->
 
 
